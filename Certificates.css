@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: black;
+  color: white;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 8%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 2.6rem;
+  color: #b74b4b;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+nav a {
+  color: white;
+  font-size: 1.6rem;
+  margin-left: 2.5rem;
+  border-bottom: 2px solid transparent;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+nav a:hover,
+nav a.active {
+  color: #b74b4b;
+  border-bottom: 2px solid #b74b4b;
+}
+
+.achievement {
+  padding: 10rem 8% 5rem;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 4rem;
+  color: #b74b4b;
+  margin-bottom: 4rem;
+}
+
+.achievement-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  justify-content: center;
+}
+
+.achievement-card {
+  width: 550px;
+  min-height: 660px;
+}
+
+
+.achievement-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px #b74b4b;
+}
+
+.achievement-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 0 15px #b74b4b33;
+}
+
+.achievement-card h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.achievement-card p {
+  font-size: 1.4rem;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+.certificates-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* มือถือ = 2 รูปต่อแถว */
+  gap: 20px;
+  padding: 20px;
+}
+
+@media (min-width: 768px) {
+  .certificates-container {
+    grid-template-columns: repeat(4, 1fr); /* iPad = 4 รูปต่อแถว */
+  }
+}
+
+@media (min-width: 1024px) {
+  .certificates-container {
+    grid-template-columns: repeat(3, 1fr); /* คอมใหญ่ = 3 รูปต่อแถว */
+  }
+}

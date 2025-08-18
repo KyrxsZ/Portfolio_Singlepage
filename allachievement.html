@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Achievements - Tern</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: black;
+      color: white;
+      width: 100%;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 1rem 8%;
+      background-color: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(8px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 2.6rem;
+      color: #b74b4b;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    nav a {
+      color: white;
+      font-size: 1.6rem;
+      margin-left: 2.5rem;
+      border-bottom: 2px solid transparent;
+      transition: 0.3s;
+      text-decoration: none;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #b74b4b;
+      border-bottom: 2px solid #b74b4b;
+    }
+
+    .achievement {
+      padding: 10rem 8% 5rem;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 4rem;
+      color: #b74b4b;
+      margin-bottom: 4rem;
+    }
+
+    .achievement-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      justify-content: center;
+    }
+
+    .achievement-card {
+      width: 550px;
+      min-height: 660px;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .achievement-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 25px #b74b4b;
+    }
+
+    .achievement-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 1rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 0 15px #b74b4b33;
+    }
+
+    .achievement-card h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: white;
+    }
+
+    .achievement-card p {
+      font-size: 1.4rem;
+      color: #ccc;
+      line-height: 1.6;
+    }
+
+    /* ========== Fullscreen Popup ========== */
+    .img-popup {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.85);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .img-popup img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 1rem;
+      box-shadow: 0 0 25px #b74b4b;
+    }
+
+    .img-popup span {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      font-size: 5rem;
+      color: #fff;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <a href="index.html" class="logo">Back to home</a>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    
+  </header>
+
+  <section class="achievement">
+  <h1 class="section-title">Certificates</h1>
+  <div class="achievement-container">
+
+     <div class="achievement-card" data-category="online"> <!--Category-->
+        <img src="portimages/cs50x.png" alt="cs50demo" class="clickable-img" /> <!--Where pic at-->
+        <h2>Harvard University (CS50x2025)</h2>
+        <h3>(CS50's Introduction to Computer Science)</h3>
+        <p>เป็นคอร์ส ComSci ภาษาอังกฤษล้วนที่ถือว่ายากและสนุกมาก</p>
+      </div>
+
+      <div class="achievement-card" data-category="other">
+        <img src="portimages/kmitl.png" alt="kmitl" class="clickable-img" />
+        <h2>KMITL (Open house)</h2>
+        <p>งาน Open house ของ สถาบันเทคโนโลยีพระจอมเกล้าฯ ปี 2022</p>
+      </div>
+
+      <div class="achievement-card" data-category="university">
+        <img src="portimages/kku.png" alt="kku" class="clickable-img" />
+        <h2>IENS KKU (Coding for highschool)</h2>
+        <p>อบรม Python 12 ชั่วโมง ของ คณะวิศวกรรมศาสตร์ มข.</p>
+      </div>
+
+      <div class="achievement-card" data-category="online">
+        <img src="portimages/btd.png" alt="borntodev" class="clickable-img" />
+        <h2>born to Dev (DevLab4)</h2>
+        <p>แล็บฝึกสกิล Coding สนุกๆ</p>
+      </div>
+
+      <div class="achievement-card" data-category="online">
+        <img src="portimages/Quantum.png" alt="Qc" class="clickable-img" />
+        <h2>born to Dev</h2>
+        <h3>(Introduction to Quantum Computing)</h3>
+        <p>เนื้อหาเบื้องต้นเกี่ยวกับการคอมพิวเตอร์ควอนตัม</p>
+      </div>
+
+      <div class="achievement-card" data-category="competition">
+        <img src="portimages/software 70.jpg" alt="sf70" class="clickable-img" />
+        <h2>ศิลป หัตถกรรมครั้งที่ 70 (เขตพื้นที่)</h2>
+      </div>
+
+      <div class="achievement-card" data-category="competition">
+        <img src="portimages/software nation 70.jpg" alt="sf70 nation" class="clickable-img" />
+        <h2>ศิลป หัตถกรรมครั้งที่ 70 (ระดับชาติ)</h2>
+      </div>
+
+      <div class="achievement-card" data-category="competition">
+        <img src="portimages/motiongraph.png" alt="mg" class="clickable-img" />
+        <h2>ศิลป หัตถกรรมครั้งที่ 71</h2>
+      </div>
+
+      <div class="achievement-card" data-category="other">
+        <img src="portimages/gudstudent.png" alt="goods" class="clickable-img" />
+        <h2>นักเรียนดีเด่น</h2>
+      </div>
+
+      <div class="achievement-card" data-category="online">
+        <img src="portimages/ic.png" alt="ic" class="clickable-img" />
+        <h2>born to Dev (Introduction to Computer Science)</h2>
+        <p>เนื้อหาเบื้องต้นเกี่ยวกับวิทยาการคอมพิวเตอร์</p>
+      </div>
+
+      <div class="achievement-card" data-category="online">
+        <img src="portimages/Github.png" alt="github" class="clickable-img" />
+        <h2>born to Dev (GitHub for Developer)</h2>
+        <p>เรียนรู้การใช้ GitHub สำหรับนักพัฒนา</p>
+      </div>
+
+      <div class="achievement-card" data-category="online">
+        <img src="portimages/Mine.jpg" alt="mc" class="clickable-img" />
+        <h2>Code.org (Minecraft Hour of Code)</h2>
+        <p>เรียนรู้การเขียนโค้ดผ่าน Minecraft</p>
+      </div>
+
+      <div class="achievement-card" data-category="online">
+        <img src="portimages/starwars.png" alt="stw" class="clickable-img" />
+        <h2>Code.org (Star Wars Hour of Code)</h2>
+        <p>เรียนรู้การเขียนโค้ดผ่านธีมหนัง Star Wars</p>
+      </div>
+
+      <div class="achievement-card" data-category="online">
+        <img src="portimages/trans.jpg" alt="trnf" class="clickable-img" />
+        <h2>Code.org (Hello World: Transformers One)</h2>
+        <p>เรียนรู้การเขียนโค้ดผ่านธีม Transformers</p>
+      </div>
+
+      <div class="achievement-card" data-category="online">
+        <img src="portimages/music.jpg" alt="music" class="clickable-img" />
+        <h2>Code.org (Music Lab Hour of Code)</h2>
+        <p>เรียนรู้การเขียนโค้ดผ่านการทำดนตรี</p>
+      </div>
+
+      <div class="achievement-card" data-category="camp">
+        <img src="portimages/ictp camp 0.png" alt="ictp" class="clickable-img" />
+        <h2>เข้าร่วมกิจกรรมสานสัมพันธ์ ICTP ครั้งที่ 6</h2>
+      </div>
+
+      <div class="achievement-card" data-category="camp">
+        <img src="portimages/ictp camp.png" alt="ictpc" class="clickable-img" />
+        <h2>เป็นคณะจัดกิจกรรมสานสัมพันธ์ ICTP</h2>
+      </div>
+
+      <div class="achievement-card" data-category="camp">
+        <img src="portimages/ictp camp joint.png" alt="ictpj" class="clickable-img" />
+        <h2> เข้าร่วมกิจกรรมสานสัมพันธ์ ICTP</h2>
+      </div>
+
+      <div class="achievement-card" data-category="camp">
+        <img src="portimages/ictp admin.png" alt="ictp" class="clickable-img" />
+        <h2>เป็นคณะจัดกิจกรรมสานสัมพันธ์ ICTP</h2>
+      </div>
+
+      <div class="achievement-card" data-category="camp">
+        <img src="portimages/ictp camp joint 68.png" alt="ictp" class="clickable-img" />
+        <h2>เข้าร่วมกิจกรรมสานสัมพันธ์ ICTP</h2>
+      </div>
+
+      <div class="achievement-card" data-category="other">
+        <img src="portimages/motorbike.png" alt="mtb" class="clickable-img" />
+        <h2>กรมขนส่งทางบก</h2>
+      </div>
+
+      <div class="achievement-card" data-category="online">
+        <img src="portimages/Caesar eny.png" alt="caesar" class="clickable-img" />
+        <h2>ถอดรหัส Altbash และ Caesar</h2>
+        <p>เรียนรู้การถอดรหัสข้อความด้วยวิธี Altbash และ Caesar</p>
+      </div>
+
+      <div class="achievement-card" data-category="online">
+        <img src="portimages/Chula.jpg" alt="Chula" class="clickable-img" />
+        <h2>Chulamooc</h2>
+        <p>พื้นฐานPython จากมหาวิทยาลัยจุฬาลงกรณ์</p>
+      </div>
+
+      <div class="achievement-card" data-category="online">
+        <img src="portimages/ai sswt.png" alt="ai sswt" class="clickable-img" />
+        <h2>ปัญญาประดิษฐ์สำหรับนักเรียนมัธยมปลาย</h2>
+        <p>วิวัฒนาการและจริยธรรม AI สำหรับนักเรียนมัธยมปลาย</p>
+      </div>
+
+      <div class="achievement-card" data-category="online">
+        <img src="portimages/ai sswt 2.png" alt="ai sswt" class="clickable-img" />
+        <h2>ปัญญาประดิษฐ์สำหรับนักเรียนมัธยมปลาย</h2>
+        <p>ปัญหาของ AI สำหรับนักเรียนมัธยมปลาย</p>
+      </div>
+
+      <div class="achievement-card" data-category="online">
+        <img src="portimages/ai sswt 3.png" alt="ai sswt" class="clickable-img" />
+        <h2>ปัญญาประดิษฐ์สำหรับนักเรียนมัธยมปลาย</h2>
+        <p>เรียนรู้แบบมีผู้สอน (Machine Learning) สำหรับนักเรียนมัธยมปลาย</p>
+      </div>
+
+      <div class="achievement-card" data-category="online">
+        <img src="portimages/think9.png" alt="think" class="clickable-img" />
+        <h2>Think Digital</h2>
+        <p>AI LITERACY</p>
+      </div>
+
+      <div class="achievement-card" data-category="online">
+        <img src="portimages/think.png" alt="think" class="clickable-img" />
+        <h2>Think Digital</h2>
+        <P>Digital use</P>
+      </div>
+
+      <div class="achievement-card" data-category="online">
+        <img src="portimages/think2.png" alt="think" class="clickable-img" />
+        <h2>Think Digital</h2>
+        <P>Digital identity</P>
+      </div>
+
+      <div class="achievement-card" data-category="online">
+        <img src="portimages/think3.png" alt="think" class="clickable-img" />
+        <h2>Think Digital</h2>
+        <p>Digital Safety</p>
+      </div>
+
+      <div class="achievement-card" data-category="online">
+        <img src="portimages/think4.png" alt="think" class="clickable-img" />
+        <h2>Think Digital</h2>
+        <p>Digital Security</p>
+      </div>
+
+      <div class="achievement-card" data-category="online">
+        <img src="portimages/think5.png" alt="think" class="clickable-img" />
+        <h2>Think Digital</h2>
+        <p>Digital Emotional Intelligence</p>
+      </div>
+
+      <div class="achievement-card" data-category="online">
+        <img src="portimages/think6.png" alt="think" class="clickable-img" />
+        <h2>Think Digital</h2>
+        <p>Digital Communication</p>
+      </div>
+
+      <div class="achievement-card" data-category="online">
+        <img src="portimages/think7.png" alt="think" class="clickable-img" />
+        <h2>Think Digital</h2>
+        <P>Digital Rights</P>
+      </div>
+
+      <div class="achievement-card" data-category="online">
+        <img src="portimages/think8.png" alt="think" class="clickable-img" />
+        <h2>Think Digital</h2>
+        <p>MIDL</p>
+      </div>
+
+      <div class="achievement-card" data-category="online">
+        <img src="portimages/santander.png" alt="santander" class="clickable-img" />
+        <h2>Introduction to Generative AI</h2>
+        <P></P>
+      </div>
+  </div>
+</section>
+
+<section class="achievement">
+  <h1 class="section-title">Projects</h1>
+  <div class="achievement-container">
+
+    <div class="achievement-card">
+      <img src="projects/cs50pr.png" alt="w1" class="clickable-img" />
+      <h2>Completed Cs50 Weeks 1 to 10</h2>
+      <p>แก้โจทย์ปัญหาและทำงานส่งของ Cs50 ครบทุกสัปดาห์ </p>
+    </div>
+
+    <div class="achievement-card">
+      <img src="projects/Piggy.png" alt="finance" class="clickable-img" />
+      <h2>Piggy Pocky Iot n App</h2>
+      <p>งานประดิษฐ์อุปกรณ์Iot และ Mobile App แก้ไขปัญหาในชีวิตประจำวันครั้งแรก</p>
+    </div>
+
+    <div class="achievement-card">
+      <img src="projects/Port.png" alt="finance" class="clickable-img" />
+      <h2>Portfolio Website</h2>
+      <p>ทำเว็บไซต์ เก็บ Portfolio และผลงานส่วนตัว </p>
+    </div>
+
+    <div class="achievement-card">
+      <img src="projects/Ai blog.png" alt="Ai" class="clickable-img" />
+      <h2>AI Blog</h2>
+      <p>เป็นProject ส่ง Codedex ทำเกี่ยวกับ Generative AI ที่จะสร้างบทความเกี่ยวกับ Topic ที่ user เลือก(ใช้ได้แค่ในTherminal)</p>
+      <p>https://github.com/KyrxsZ/AI_Blog_Python.git</p>
+    </div>
+
+    <div class="achievement-card">
+      <img src="projects/Minecraftpy.png" alt="finance" class="clickable-img" />
+      <h2>Minecraft Python</h2>
+      <p>ลองทำMinecraft Clone จากLibary ของ Ursina ครั้งแรก</p>
+    </div>
+
+    <div class="achievement-card">
+      <img src="projects/Finacne.png" alt="w6" class="clickable-img" />
+      <h2>Finance Webapp</h2>
+      <p>โค้ดทำเว็ปจำลองซื้อหุ้น อ้างอิงจากราคาจริง เป็นส่วนหนึ่งของงานในCs50</p>
+    </div>
+
+    <div class="achievement-card">
+      <img src="projects/F1.png" alt="w6" class="clickable-img" />
+      <h2>Formula 1 stats Website</h2>
+      <p>ทำเว็ปคะแนนสะสมของนักขับ F1 อ้างอิงจากคะแนนจริงจากการแข่งล่าสุด</p>
+    </div>
+
+  </div>
+</section>
+
+     
+
+  <!-- Popup full image -->
+  <div class="img-popup" id="imgPopup">
+    <span id="closePopup">&times;</span>
+    <img id="popupImg" src="" alt="Full Image" />
+  </div>
+
+  <script>
+    // Hamburger menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('nav-active');
+      hamburger.classList.toggle('is-active');
+    });
+
+    // Popup image logic
+    const images = document.querySelectorAll('.clickable-img');
+    const popup = document.getElementById('imgPopup');
+    const popupImg = document.getElementById('popupImg');
+    const closeBtn = document.getElementById('closePopup');
+
+    images.forEach(img => {
+      img.addEventListener('click', () => {
+        popup.style.display = 'flex';
+        popupImg.src = img.src;
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      popup.style.display = 'none';
+    });
+
+    popup.addEventListener('click', e => {
+      if (e.target === popup) {
+        popup.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>

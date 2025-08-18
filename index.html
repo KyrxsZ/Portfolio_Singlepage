@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+<title>Portfolio Website</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+}
+
+body{
+    width: 100%;
+    background-color: black;
+    color: whitesmoke;
+    overflow-x: hidden;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 1000;
+}
+
+header nav, header .logo {
+    padding: 1rem 9%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    font-size: 3rem;
+    color: #b74b4b;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+.logo:hover{
+    transform: scale(1.1);
+}
+
+nav a{
+    font-size: 1.8rem;
+    color: white;
+    margin-left: 4rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+nav a:hover,
+nav a.active{
+    color: #b74b4b;
+    border-bottom: 3px solid #b74b4b;
+}
+
+section{
+    min-height: 100vh;
+    padding: 5rem 9% 5rem;
+    scroll-snap-align: start;
+    scroll-margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Home Section */
+.home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8rem;
+    flex-wrap: wrap;
+}
+
+.home .home-content h1{
+    font-size: 6rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+span{
+    color: #b74b4b;
+}
+
+.home-content h3{
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.home-content p{
+    font-size: 1.6rem;
+}
+
+.home-img img{
+    width: 32vw;
+    max-width: 400px;
+    border-radius: 50%;
+    box-shadow: 0 0 25px solid #b74b4b;
+    cursor: pointer;
+    transition: 0.2s linear;
+}
+
+.home-img img:hover{
+    transform: scale(1.05);
+}
+
+.social-icons a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    background-color: transparent;
+    border: 0.2rem solid #b74b4b;
+    font-size: 2rem;
+    border-radius: 50%;
+    margin: 1rem;
+    transition: 0.3s ease;
+    color: #b74b4b;
+}
+
+.social-icons a:hover{
+    color: black;
+    transform: scale(1.3) translateY(-5px);
+    background-color: #b74b4b;
+    box-shadow: 0 0 25px #b74b4b;
+}
+
+.btn{
+    display: inline-block;
+    padding: 1rem 2.8rem;
+    background-color: black;
+    border-radius: 4rem;
+    font-size: 1.6rem;
+    color: #b74b4b;
+    letter-spacing: 0.3rem;
+    font-weight: 600;
+    border: 2px solid #b74b4b;
+    transition: 0.3s ease;
+    cursor: pointer;
+    margin: 0.5rem;
+}
+
+.btn:hover{
+    transform: scale3d(1.03);
+    background-color: #b74b4b;
+    color: black;
+    box-shadow: 0 0 25px #b74b4b;
+}
+
+/* Typing Effect */
+.typing-text span{
+    border-right: 3px solid #b74b4b;
+    padding-right: 4px;
+    animation: blink-caret 0.7s step-end infinite;
+}
+
+@keyframes blink-caret {
+  0%, 100% { border-color: #b74b4b; }
+  50% { border-color: transparent; }
+}
+
+/* About & Education & Contact Section */
+.about-content{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+
+.about-content .about-img img{
+    width: 80%;
+    max-width: 500px;
+    border-radius: 1rem;
+    box-shadow: 0 0 15px #b74b4b;
+}
+
+/* Fade-in effect */
+.fade-in{
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.fade-in.visible{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive */
+@media(max-width:995px){
+    .home {
+        flex-direction: column;
+        margin: 5rem 4rem;
+    }
+
+    .home-img img {
+        width: 70vw;
+        margin-top: 4rem;
+    }
+
+    .home-content h1 {
+        font-size: 4.5rem;
+    }
+
+    .home-content h3 {
+        font-size: 2.5rem;
+    }
+
+    .home-content p {
+        font-size: 1.5rem;
+    }
+
+    .about-content .about-img img {
+        width: 90%;
+    }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <a href="#" class="logo">Natthakit Nguyên Srichan</a>
+    <nav>
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About me</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<!-- Home Section -->
+<section id="home" class="home">
+    <div class="home-img">
+        <img src="images/main5.png" alt="" />
+    </div>
+    <div class="home-content">
+        <h1>Hi there! I'm <span id="glitch-text">Tern</span></h1>
+        <h3 class="typing-text" data-text="Also know as Kyxsz"><span></span></h3>
+        <p>Even 1% better than yesterday is still better than yesterday.</p>
+        <div class="social-icons">
+            <a href="https://open.spotify.com/user/31if6pkulxkb5gi5jd53kjpe5rli"><i class="fa-brands fa-spotify"></i></a>
+            <a href="https://github.com/KyrxsZ"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.instagram.com/kkyrxsz/"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://discord.com/users/599184862812831744"><i class="fa-brands fa-discord"></i></a>
+        </div>
+        <a href="Certificates.html" class="btn">Certificates</a>
+        <a href="achievement.html" class="btn">Achievements</a>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about">
+  <div class="about-content">
+    <div class="about-img"><img src="images/kid.jpg" alt="About Me Photo" /></div>
+    <h1 class="typing-text" data-text="About Me"><span></span></h1>
+    <p class="fade-in"><strong>สวัสดีค้าบบบบบผม เติ้ล นะครับ หรือนายณัฐกิตติ์ ศรีจันทร์ 😊</strong></p>
+    <p class="fade-in"><strong>เว็ปนี้เป็นที่เก็บผลงานและที่ฝึกฝนสกิล Web Dev, Coding ของผมในเวลาเดียวกันน</strong></p>
+
+    <div class="about-img"><img src="images/wind.jpg" alt="Who am I Photo" /></div>
+    <h1 class="typing-text" data-text="Who am I ?"><span></span></h1>
+    <p class="fade-in"><strong>สวัสดีอีกทีครับ!! 😊 ผมนายณัฐกิตติ์ ศรีจันทร์ หรือชื่อเล่นว่า เติ้ล นะครับ</strong></p>
+    <p class="fade-in">ปีนี้ผมมีอายุได้ 18 ปี</p>
+    <p class="fade-in"><strong>ผมเกิดวันอาทิตย์ที่ 10 มิถุนายน พ.ศ. 2550 / ค.ศ. 2007</strong></p>
+    <p class="fade-in"><strong>ผมเป็นลูกครึ่งเวียดนาม ที่เกิดและโตที่ไทย ในเมืองเล็ก ๆ ติดชายแดนที่มีชื่อว่า "อำนาจเจริญ"</strong></p>
+    <p class="fade-in"><strong>การที่ผมเป็นลูกครึ่ง ทุกคนคงคิดว่าผมพูดภาษาเวียดได้แน่เลย</strong></p>
+    <p class="fade-in">และแน่นอนครับ... ผมพูดไม่ได้สักคำ ขอบคุณครับ 😅</p>
+
+    <div class="about-img"><img src="images/bass1.jpg" alt="Passion Photo" /></div>
+    <h1 class="typing-text" data-text="Passion"><span></span></h1>
+    <p class="fade-in"><strong>แรงบันดาลใจของผมเป็นอะไรที่เรียบง่ายมากเลยครับ</strong></p>
+    <p class="fade-in"><strong>ผมเป็นคนชอบเรียนภาษาตั้งแต่อายุยังน้อย และผมในวัยเด็กก็สงสัยว่าอุปกรณ์อิเล็กทรอนิกส์พวกนี้คุยกันภาษาอะไรนะะ</strong></p>
+    <p class="fade-in"><strong>เลยทำให้ผมศึกษาและคลุกคลีกับเรื่องพวกนี้มาตั้งแต่เด็ก</strong></p>
+
+    <div class="about-img"><img src="images/gym.jpg" alt="Goals Photo" /></div>
+    <h1 class="typing-text" data-text="My Goals"><span></span></h1>
+    <p class="fade-in"><strong>ความฝัน เป้าหมายชีวิต </strong></p>
+    <p class="fade-in"><strong>ก็คงเป็นชีวิตง่ายๆ หาตังจนใช้ยังไงก็ไม่หมด และก็กินเซ็ตไก่ผู้พันธ์บนท้ายรถGTR</strong></p>
+  </div>
+</section>
+
+<!-- Education Section -->
+<section id="education">
+  <div class="about-content">
+    <div class="about-img"><img src="images/Mep.jpg" alt="Elementary School" /></div>
+    <h1 class="typing-text" data-text="Anuban Amnatcharoen School"><span></span></h1>
+    <p class="fade-in"><strong>อนุบาลอำนาจเจริญ หรือ บุ่งชาญวิทยา</strong></p>
+    <p class="fade-in">English Program(EP)</p>
+    <p class="fade-in">ช่วงประถมต้น(ป.1-ป.3)</p>
+    <p class="fade-in"><strong>"สาเหตุที่เลือกสายภาษาเพราะอยากดูคลิปYoutube ของชาวต่างชาติแล้วรู้เรื่องครับ"</strong></p>
+
+    <div class="about-img"><img src="images/ave.png" alt="Avemaria School" /></div>
+    <h1 class="typing-text" data-text="Avemaria Amnatcharoen School"><span></span></h1>
+    <p class="fade-in"><strong>อาเวมารีอาอำนาจเจริญ</strong></p>
+    <p class="fade-in">ช่วงประถมปลาย(ป.4-ป.6)</p>
+    <p class="fade-in"><strong>"ได้มีโอกาศเป็นคนลงระบบประติบัติการให้คอมของที่โรงเรียน ภูมิใจมากครับตอนนั้น"</strong></p>
+
+    <div class="about-img"><img src="images/amnat.jpg" alt="Amnatcharoen School" /></div>
+    <h1 class="typing-text" data-text="Amnatcharoen School"><span></span></h1>
+    <p class="fade-in"><strong>โรงเรียนอำนาจเจริญ</strong></p>
+    <p class="fade-in"><strong> Information Computer Technology Program(ICTP)</strong></p>
+    <p class="fade-in">ช่วงปัจจุบัน(ม.1-ม.6)</p>
+    <p class="fade-in"><strong>"ติดเกมหนักครับ อยากเป็นนักแข่ง (ม.ต้น)"</strong></p>
+    <p class="fade-in"><strong>"กลับมาโฟกัสกับการเรียนมากขึ้น เริ่มหาที่เรียนออนไลน์ เช่น edx, cs50x, borntodev, code.org และศาสตร์อื่นๆอีกมากมาย (ม.ปลาย)"</strong></p>
+
+    <div class="about-img"><img src="images/sek.png" alt="Online Learning" /></div>
+    <h1 class="typing-text" data-text="Online Learning"><span></span></h1>
+    <p class="fade-in"><strong>"นอกจากเรียนที่โรงเรียน ผมยังเรียนคอร์สออนไลน์อย่าง CS50x ของ Harvard ตามที่กล่าวไปในพาร์ท ม.ปลาย"</strong></p>
+    <p class="fade-in">ซึ่งเป็นหลักสูตรพื้นฐานการเขียนโปรแกรมที่ช่วยเสริมความเข้าใจหลายด้าน</p>
+    <p class="fade-in"><strong>ผมใช้เวลาว่างศึกษาด้วยตัวเอง ทั้งภาษา C, Python, HTML/CSS และ JavaScript และอื่นๆ</strong></p>
+    <p class="fade-in"><strong>นอกจากCS50x ก็ยังมีfreecodecamp ที่ผมชอบไม่แพ้กันความรู้แน่นๆ</strong></p>
+    <p class="fade-in"><strong>แม้แต่Youtube ถ้าเลือกเนื้อหาที่เสพดีๆก็ความรู้ทั้งนั้นนะครับ"</strong></p>
+  </div>
+</section>
+
+<br></br>
+
+<!-- Contact Section -->
+<section id="contact">
+  <div class="about-content">
+    <div class="about-img">
+      <img src="images/palo.png" alt="Contact Image" />
+    </div>
+
+    <h1 class="typing-text" data-text="Contact me :)"><span></span></h1>
+
+    <p class="fade-in"><strong>สามารถติดต่อผมผ่านช่องทางต่าง ๆ ด้านล่างนี้ได้เลยนะครับ 😊</strong></p>
+     <p class="fade-in">หรือส่งอีเมลมาที่: <a href="https://mail.google.com/mail/?view=cm&fs=1&to=Nuttakit10t@gmail.com" style="color:#b74b4b;">Nuttakit10t@gmail.com</a></p>
+
+    <div class="social-icons fade-in">
+     <a href="https://mail.google.com/mail/?view=cm&fs=1&to=Nuttakit10t@gmail.com" target="_blank">
+  <i class="fa-solid fa-envelope"></i>
+</a>
+
+      <a href="https://github.com/KyrxsZ" target="_blank"><i class="fa-brands fa-github"></i></a>
+      <a href="https://www.instagram.com/kkyrxsz/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://discord.com/users/599184862812831744" target="_blank"><i class="fa-brands fa-discord"></i></a>
+    </div>
+
+   
+  </div>
+</section>
+
+
+<script>
+// Typing effect for multiple sections
+const typingElements = document.querySelectorAll('.typing-text');
+
+typingElements.forEach(el => {
+    const text = el.dataset.text;
+    const span = el.querySelector('span');
+    let index = 0;
+
+    function type() {
+        if (index < text.length) {
+            span.textContent += text[index];
+            index++;
+            setTimeout(type, 100);
+        }
+    }
+
+    type();
+});
+
+// Glitch effect for "Tern"
+const glitchEl = document.getElementById("glitch-text");
+const finalText = glitchEl.textContent;
+const glitchChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:,.<>?"; // เปลี่ยนชื่อ
+
+function randomGlitch(duration = 2000) {
+    let frame = 0;
+    const intervalTime = 100;
+    const totalFrames = duration / intervalTime;
+
+    const interval = setInterval(() => {
+        let displayed = "";
+        for (let i = 0; i < finalText.length; i++) {
+            if (Math.random() < 0.5) displayed += finalText[i];
+            else displayed += glitchChars[Math.floor(Math.random() * glitchChars.length)];
+        }
+        glitchEl.textContent = displayed;
+        frame++;
+        if (frame >= totalFrames) {
+            clearInterval(interval);
+            glitchEl.textContent = finalText;
+        }
+    }, intervalTime);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    randomGlitch(1000);
+});
+
+
+// Fade-in effect
+const faders = document.querySelectorAll('.fade-in');
+const appearOptions = { threshold: 0.3, rootMargin: "0px 0px -50px 0px" };
+const appearOnScroll = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add("visible");
+    observer.unobserve(entry.target);
+  });
+}, appearOptions);
+faders.forEach(el => appearOnScroll.observe(el));
+
+// Highlight navbar on scroll
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('nav a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    if (pageYOffset >= sectionTop - 120) current = section.getAttribute('id');
+  });
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if(link.getAttribute('href') === `#${current}`) link.classList.add('active');
+  });
+});
+</script>
+
+</body>
+</html>
