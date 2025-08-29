@@ -21,6 +21,7 @@
       width: 100%;
       min-height: 100vh;
       overflow-x: hidden;
+      margin-top: -5rem;
     }
 
     header {
@@ -35,11 +36,12 @@
       justify-content: space-between;
       align-items: center;
       z-index: 1000;
+      
     }
 
     .logo {
-      font-size: 2.6rem;
-      color: #b74b4b;
+      font-size: 1.5rem;
+      color: #ffffff;
       font-weight: 700;
       text-decoration: none;
     }
@@ -105,7 +107,7 @@
     }
 
     .achievement-card {
-      flex: 1 1 calc(33.33% - 2rem); /* 3 ต่อแถว */
+      flex: 1 1 calc(25% - 2rem); /* 3 ต่อแถว */
       max-width: 300px;
       transition: 0.3s;
       cursor: pointer;
@@ -180,7 +182,7 @@
 
     @media (max-width: 600px) {
       .achievement-card {
-        flex: 1 1 100%; /* 1 ต่อแถว */
+        flex: 1 1 calc(50% - 1.5rem); /* 2 ต่อแถว */
       }
     }
   </style>
@@ -215,6 +217,25 @@
         <p>เป็นคอร์ส ComSci ภาษาอังกฤษล้วนที่ถือว่ายากและสนุกมาก</p>
       </div>
 
+      <div class="achievement-card" data-category="online">
+        <img src="portimages/santander.png" alt="santander" class="clickable-img" />
+        <h2>Introduction to Generative AI</h2>
+        <P>หลักสูตรการใช้ Generative AI พื้นฐาน จาก Santander</P>
+      </div>
+
+      <div class="achievement-card" data-category="online">
+        <img src="portimages/Codedex.png" alt="Codedex" class="clickable-img" />
+        <h2>The Legend of Python จาก Codedex</h2>
+        <P>ตำราของตำนานPython จาก Codedex</P>
+      </div>
+
+      <div class="achievement-card" data-category="competition">
+        <img src="portimages/sciday.png" alt="sf70" class="clickable-img" />
+        <h2>สัปดาห์วิทยาศาสตร์</h2>
+        <h1>(โครงงานคอมพิวเตอร์)</h1>
+        <p>รางวัลชนะเลิศ</p>
+      </div>
+
       <div class="achievement-card" data-category="other">
         <img src="portimages/kmitl.png" alt="kmitl" class="clickable-img" />
         <h2>KMITL (Open house)</h2>
@@ -242,17 +263,20 @@
 
       <div class="achievement-card" data-category="competition">
         <img src="portimages/software 70.jpg" alt="sf70" class="clickable-img" />
-        <h2>ศิลป หัตถกรรมครั้งที่ 70 (เขตพื้นที่)</h2>
+        <h2>ศิลป หัตถกรรมครั้งที่ 70 (ระดับเขตพื้นที่)</h2>
+        <p>เหรียญทอง</p>
       </div>
 
       <div class="achievement-card" data-category="competition">
         <img src="portimages/software nation 70.jpg" alt="sf70 nation" class="clickable-img" />
         <h2>ศิลป หัตถกรรมครั้งที่ 70 (ระดับชาติ)</h2>
+        <p>เหรียญเงิน</p>
       </div>
 
       <div class="achievement-card" data-category="competition">
         <img src="portimages/motiongraph.png" alt="mg" class="clickable-img" />
         <h2>ศิลป หัตถกรรมครั้งที่ 71</h2>
+        <p>เหรียญทอง</p>
       </div>
 
       <div class="achievement-card" data-category="other">
@@ -267,9 +291,21 @@
       </div>
 
       <div class="achievement-card" data-category="online">
+        <img src="portimages/Caesar eny.png" alt="caesar" class="clickable-img" />
+        <h2>ถอดรหัส Altbash และ Caesar</h2>
+        <p>เรียนรู้การถอดรหัสข้อความด้วยวิธี Altbash และ Caesar</p>
+      </div>
+
+      <div class="achievement-card" data-category="online">
         <img src="portimages/Github.png" alt="github" class="clickable-img" />
         <h2>born to Dev (GitHub for Developer)</h2>
         <p>เรียนรู้การใช้ GitHub สำหรับนักพัฒนา</p>
+      </div>
+
+      <div class="achievement-card" data-category="online">
+        <img src="portimages/Githubco.png" alt="github" class="clickable-img" />
+        <h2>born to Dev (Prompt Engineering with GitHub Copilot)</h2>
+        <p>เรียนรู้การใช้ GitHub Copilot ในการพัฒนาโปรแกรม</p>
       </div>
 
       <div class="achievement-card" data-category="online">
@@ -326,11 +362,7 @@
         <h2>กรมขนส่งทางบก</h2>
       </div>
 
-      <div class="achievement-card" data-category="online">
-        <img src="portimages/Caesar eny.png" alt="caesar" class="clickable-img" />
-        <h2>ถอดรหัส Altbash และ Caesar</h2>
-        <p>เรียนรู้การถอดรหัสข้อความด้วยวิธี Altbash และ Caesar</p>
-      </div>
+    
 
       <div class="achievement-card" data-category="online">
         <img src="portimages/Chula.jpg" alt="Chula" class="clickable-img" />
@@ -410,11 +442,7 @@
         <p>MIDL</p>
       </div>
 
-      <div class="achievement-card" data-category="online">
-        <img src="portimages/santander.png" alt="santander" class="clickable-img" />
-        <h2>Introduction to Generative AI</h2>
-        <P></P>
-      </div>
+      
 
 
     </div>

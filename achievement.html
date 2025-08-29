@@ -21,6 +21,7 @@
       width: 100%;
       min-height: 100vh;
       overflow-x: hidden;
+      margin-top: -5rem;
     }
 
     header {
@@ -38,8 +39,8 @@
     }
 
     .logo {
-      font-size: 2.6rem;
-      color: #b74b4b;
+      font-size: 1.6rem;
+      color: #ffffff;
       font-weight: 700;
       text-decoration: none;
     }
@@ -141,19 +142,34 @@
     }
 
     /* ====== Responsive สำหรับมือถือ ====== */
-    @media (max-width: 768px) {
+   /* ====== Responsive ====== */
+    @media (max-width: 992px) {
       .achievement-card {
-        flex: 1 1 calc(50% - 1rem); /* 2 ต่อแถว */
-        max-width: 45%;
+        flex: 1 1 calc(50% - 1.5rem); /* 2 ต่อแถว */
       }
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 600px) {
       .achievement-card {
-        flex: 1 1 100%; /* 1 ต่อแถว */
-        max-width: 100%;
+        flex: 1 1 calc(50% - 1.5rem); /* 2 ต่อแถว */
       }
     }
+
+    .video-wrapper {
+  width: 100%;
+  aspect-ratio: 16/9;     /* รักษาอัตราส่วนวิดีโอ */
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.video-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* ทำให้วิดีโอเต็มกรอบ ไม่บิดเบี้ยว */
+  display: block;
+}
+
+
   </style>
 </head>
 
@@ -167,13 +183,13 @@
     <div class="achievement-container">
 
       <div class="achievement-card">
-        <img src="projects/cs50pr.png" alt="w1" class="clickable-img" />
+        <img src="projects/cs50pr.png" alt="cs50" class="clickable-img" />
         <h2>Completed Cs50 Weeks 1 to 10</h2>
         <p>แก้โจทย์ปัญหาและทำงานส่งของ Cs50 ครบทุกสัปดาห์ </p>
       </div>
 
       <div class="achievement-card">
-        <img src="projects/Piggy.png" alt="finance" class="clickable-img" />
+        <img src="projects/Piggy.png" alt="piggy" class="clickable-img" />
         <h2>Piggy Pocky Iot n App</h2>
         <p>งานประดิษฐ์อุปกรณ์Iot และ Mobile App แก้ไขปัญหาในชีวิตประจำวันครั้งแรก</p>
         <p>เป็นผลงานที่ลงประกวดในสัปดาห์วิทยาศาสตร์ และได้รางวัลอันดับที่ 1 </p>
@@ -209,6 +225,18 @@
         <h2>Formula 1 stats Website</h2>
         <p>ทำเว็ปคะแนนสะสมของนักขับ F1 อ้างอิงจากคะแนนจริงจากการแข่งล่าสุด</p>
       </div>
+
+      <div class="achievement-card">
+  <div class="video-wrapper">
+    <video autoplay muted loop class="clickable-video">
+      <source src="Machine learning detected objects.mp4" type="video/mp4">
+    </video>
+  </div>
+  <h2>Machine Learning Object Detection</h2>
+  <p>ทดลองใช้เทคนิค Machine Learning ในการตรวจจับวัตถุในภาพ จาก dataset ที่เตรียมมาเอง train ผ่าน Rent Gpu ของ Google Colab</p>
+</div>
+
+
 
     </div>
   </section>

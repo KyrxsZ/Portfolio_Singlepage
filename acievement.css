@@ -100,3 +100,26 @@ nav a.active {
   color: #ccc;
   line-height: 1.6;
 }
+
+.achievement-card {
+  width: 300px;           /* ปรับตามที่ต้องการ */
+  border: 2px solid #ccc; /* เส้นขอบการ์ด */
+  border-radius: 15px;    /* มุมโค้ง */
+  overflow: hidden;       /* ตัดส่วนที่ล้น */
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.video-wrapper {
+  width: 100%;
+  aspect-ratio: 16/9;     /* รักษาอัตราส่วนวิดีโอ */
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.video-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* ทำให้วิดีโอเต็มกรอบ ไม่บิดเบี้ยว */
+  display: block;
+}
