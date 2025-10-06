@@ -1,2 +1,2 @@
 # Portfoliosinglepage
-https://kyrxszport.netlify.app/
+https://kyrzz.netlify.app/
