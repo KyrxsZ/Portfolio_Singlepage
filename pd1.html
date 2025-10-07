@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Achievements - Tern</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: black;
+      color: white;
+      width: 100%;
+      min-height: 100vh;
+      overflow-x: hidden;
+      margin-top: -5rem;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 1rem 8%;
+      background-color: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(8px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      color: #ffffff;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    nav a {
+      color: white;
+      font-size: 1.6rem;
+      margin-left: 2.5rem;
+      border-bottom: 2px solid transparent;
+      transition: 0.3s;
+      text-decoration: none;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #b74b4b;
+      border-bottom: 2px solid #b74b4b;
+    }
+
+    .achievement {
+      padding: 10rem 8% 5rem;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 4rem;
+      color: #b74b4b;
+      margin-bottom: 4rem;
+    }
+
+    .achievement-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    .achievement-card {
+      flex: 1 1 calc(25% - 2rem); /* 4 ต่อแถว */
+      max-width: 250px;
+      min-height: auto;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .achievement-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 25px #b74b4b;
+    }
+
+    .achievement-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 1rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 15px #b74b4b33;
+    }
+
+    .achievement-card h2 {
+      font-size: 1.8rem;
+      margin-bottom: 0.8rem;
+      color: white;
+    }
+
+    .achievement-card p {
+      font-size: 1.3rem;
+      color: #ccc;
+      line-height: 1.5;
+    }
+
+    /* ========== Fullscreen Popup ========== */
+    .img-popup {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.85);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .img-popup img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 1rem;
+      box-shadow: 0 0 25px #b74b4b;
+    }
+
+    .img-popup span {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      font-size: 5rem;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    /* ====== Responsive สำหรับมือถือ ====== */
+   /* ====== Responsive ====== */
+    @media (max-width: 992px) {
+      .achievement-card {
+        flex: 1 1 calc(50% - 1.5rem); /* 2 ต่อแถว */
+      }
+    }
+
+    @media (max-width: 600px) {
+      .achievement-card {
+        flex: 1 1 calc(50% - 1.5rem); /* 2 ต่อแถว */
+      }
+    }
+
+    .video-wrapper {
+  width: 100%;
+  aspect-ratio: 16/9;     /* รักษาอัตราส่วนวิดีโอ */
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.video-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* ทำให้วิดีโอเต็มกรอบ ไม่บิดเบี้ยว */
+  display: block;
+}
+
+
+  </style>
+</head>
+
+<body>
+  <header>
+    <a href="index.html" class="logo">Back to home</a>
+  </header>
+
+  <section class="achievement">
+    <h1 class="section-title">Acdemic Results</h1>
+    <div class="achievement-container">
+
+      <div class="achievement-card">
+        <img src="pdpic/1.png" alt="cs50" class="clickable-img" />
+        <h2>ปพ 1 (หน้า) </h2>
+        <p>เกรด 4 เทอม</p>
+      </div>
+
+      <div class="achievement-card">
+        <img src="pdpic/2.png" alt="piggy" class="clickable-img" />
+        <h2>ปพ 1 (หลัง) </h2>
+      </div>
+
+      <div class="achievement-card">
+        <img src="pdpic/N.png" alt="piggy" class="clickable-img" />
+        <h2>TOEFL ITP (B1) </h2>
+        <p>473/677</p>
+      </div>
+       
+      <h1><strong>GPAX = 3.37</strong></ph1><br>
+      <p>กลุ่มคณิตศาสตร์ = 3.06 , 11.0 หน่วยกิต</p>
+      <p>กลุ่มคอมพิวเตอร์และเทคโนโลยีสารสนเทศ = 3.93 , 15.0 หน่วยกิต</p>
+      <p>กลุ่มภาษาอังกฤษ = 3.87 , 8.0 หน่วยกิต</p>
+
+
+    </div>
+  </section>
+
+  <!-- Popup full image -->
+  <div class="img-popup" id="imgPopup">
+    <span id="closePopup">&times;</span>
+    <img id="popupImg" src="" alt="Full Image" />
+  </div>
+
+  <script>
+    const images = document.querySelectorAll('.clickable-img');
+    const popup = document.getElementById('imgPopup');
+    const popupImg = document.getElementById('popupImg');
+    const closeBtn = document.getElementById('closePopup');
+
+    images.forEach(img => {
+      img.addEventListener('click', () => {
+        popup.style.display = 'flex';
+        popupImg.src = img.src;
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      popup.style.display = 'none';
+    });
+
+    popup.addEventListener('click', e => {
+      if (e.target === popup) {
+        popup.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
